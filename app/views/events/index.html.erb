@@ -1,7 +1,7 @@
 <div class="jumbotron">
      <div class="container">
        <% if user_signed_in? %>
-       <h1 class="display-3">Hello, <%= current_user.email %> !</h1>
+       <h1 class="display-3">Hello, <%=  %> !</h1>
        <% else %>
        <h1 class="display-3">Hello, visitor!</h1>
        <% end %>
@@ -13,6 +13,7 @@
 
       <% @events.each_with_index do |events,index| %>
       <div class="container">
+
        <!-- Example row of columns -->
        <div class="row pl-2 ">
           <div class="row-md-5">
