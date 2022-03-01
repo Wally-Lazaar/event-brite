@@ -1,23 +1,40 @@
 require 'faker'
 
+#Destroy seeds
+Attender.destroy_all
+Event.destroy_all
+User.destroy_all
+
+i = 0
+
+10.times do
+  user = User.create!(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    description: Faker::Lorem.sentence,
+    email: "a#{i}@yopmail.com",
+    password: "aaaaaa"
+  );
+  i = i + 1
+end
 
 
+10.times do
+  event = Event.create!(
+    start_date: Faker::Date.between(from: '2022-03-23', to: '2025-09-25'),
+    duration: 15,
+    title: Faker::Lorem.sentence(word_count: 3),
+    description: Faker::ChuckNorris.fact,
+    price: 5,
+    location: Faker::Games::HalfLife.location,
+    
+    
+  )
+end
 
-
-
-
-#for the random startdate
-t1 = Time.parse("2019-11-01 14:40:34")
-t2 = Time.parse("2022-01-01 00:00:00")
-
-5.times do |x|
-  Event.create!(
-
-    start_date: rand(t1..t2),
-    duration: rand(5..100)*5,
-    description: Faker::Lorem.paragraph_by_chars(number: 300, supplemental: false),
-    location: Faker::Address.city,
-    price: rand(1..1000),
-    title: Faker::Book.title)
-  puts "Seeding of Event nb #{x}"
+10.times do
+  attender = Attender.create!(
+    event_id: Event.all.sample.id,
+    user_id: User.all.sample.id
+  )
 end

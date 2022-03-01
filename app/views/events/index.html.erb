@@ -1,9 +1,9 @@
 <div class="jumbotron">
      <div class="container">
        <% if user_signed_in? %>
-       <h1 class="display-3">Hello, <%=  %> !</h1>
+       <h1 class="display-3 colorize">Hello, <%=current_user.email  %> !</h1>
        <% else %>
-       <h1 class="display-3">Hello, visitor!</h1>
+       <h1 class="display-3 colorize">Hello, visitor!</h1>
        <% end %>
 
        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
@@ -15,7 +15,7 @@
       <div class="container">
 
        <!-- Example row of columns -->
-       <div class="row pl-2 ">
+       <div class="row pl-2">
           <div class="row-md-5">
             <h2><%= @events[index].title %></h2>
             <%= @events[index].created_at %>

@@ -6,6 +6,7 @@ class EventsController < ApplicationController
   end
   def new
     @event = Event.new
+    
 
   end
   def show
@@ -17,7 +18,7 @@ class EventsController < ApplicationController
 
     def create
       @myevent = event_params
-      @event = Event.new(title: @myevent[:title], description: @myevent[:description], location: @myevent[:location], duration: @myevent[:duration], start_date: @myevent[:start_date])
+      @event = Event.new(title: @myevent[:title], price:@myevent[:price], description: @myevent[:description], location: @myevent[:location], duration: @myevent[:duration], start_date: @myevent[:start_date])
       @event.save
 
           if @event.save
@@ -36,6 +37,6 @@ class EventsController < ApplicationController
 
   private
   def event_params
-    params.require(:event).permit(:title, :description, :location, :start_date, :duration)
+    params.require(:event).permit(:title, :price, :description, :location, :start_date, :duration)
   end
 end
