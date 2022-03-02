@@ -8,8 +8,9 @@
 .jumbotron {
   background-image: url("party.png");
   background-size: 100%;
-  padding-top: 20%;
-  margin-bottom: 80%;
+  padding-top: 10%;
+  margin-bottom:10%;
+
   text-align: center;
   text-decoration: bold;
 
@@ -24,7 +25,7 @@
 .center_div{
   text-align: center;
   width:23% /* value of your choice which suits your alignment */
-  
+
 }
 
 .card-header{
